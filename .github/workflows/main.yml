@@ -35,6 +35,6 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           
-          linte:
-          run:poetry run flake8 brain_games
+      - name: lint
+        run: poetry run flake8 brain_games
           
