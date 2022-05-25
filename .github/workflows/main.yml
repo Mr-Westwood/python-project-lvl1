@@ -37,5 +37,5 @@ jobs:
           
       - name: Run linter
         run: |
-          poetry run flake8 brain_games  
+          make lint
           
