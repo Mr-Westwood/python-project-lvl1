@@ -9,28 +9,23 @@
 name: linter
 
 on:
-  release:
-    types: [published]
-
-permissions:
-  contents: read
+  push:
 
 jobs:
-  deploy:
-
+  build:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python
-      uses: actions/setup-python@v3
-      with:
-        python-version: '3.x'
-    - name: Install dependencies
-      run: |
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.*.x'
+      - name: Install dependencies
+        run: |
           python -m pip install --upgrade pip
           pip install poetry
           pip install wemake-python-styleguide
-    - name: WPS Linter Check
-      run: |
+      - name: WPS Linter Check
+        run: |
           make lint
+
