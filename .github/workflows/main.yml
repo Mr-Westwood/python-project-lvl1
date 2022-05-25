@@ -35,13 +35,8 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           
-      # make depends on poetry
-      - name: Install dependencies
-        run: |
-          pip install poetry
-          make install
-          
       - name: Run linter
         run: |
+          poetry run flake8 brain_games
           make lint
           
